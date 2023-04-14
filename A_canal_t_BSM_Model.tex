@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{positioning, shapes, snakes, arrows}
+%-----------------------------------------------------------
+%-----------------------------------------------------------
+%-----------------------------------------------------------
+\begin{document}
+\tikzset{
+	>=triangle 45,
+	pos=.8,
+    photon/.style={decorate, thick,decoration={snake,segment length=5,post length=1mm,pre length = 1mm}},
+    boson/.style={decorate, thick,draw=blue,decoration={snake,segment length=5,post length=1mm,pre length = 1mm}},
+    antiparticle/.style={ thick,postaction={decorate,decoration={markings,mark=at position  0.5 with {\arrow[xshift=2pt +3\pgflinewidth]{<}}}
+		}},
+    particle/.style={ thick,postaction={decorate,decoration={markings,mark=at position  0.5 with {\arrow[xshift=2pt +3\pgflinewidth]{>}}}
+		}
+	},
+}
+\resizebox{30cm}{!}{
+	\begin{tikzpicture}
+			\coordinate[label=left:{$e^{-}$}] (a) at (0,3);
+			\coordinate[label=right:{$e^{-}$}] (c) at (3,3);
+			\coordinate[label=right:{$e^{+}$}] (d) at (3,0);
+			\coordinate[label=left:{$e^{+}$}] (b) at (0,0);
+			\coordinate[label=above:] (v1) at (1.5,2);
+			\coordinate[label=below:] (v2) at (1.5,1);
+			\coordinate[label=above:] (v3) at (2.1,0.6);
+			\coordinate[label=below:] (v4) at (3,1.5);
+			\draw[particle] (a) to (v1);
+			\draw[antiparticle] (b) to (v2);
+			\draw[boson] (v1) to (v2);
+			\draw[particle] (v1) to (c);
+			\draw[antiparticle] (v2) to (d);
+			\node at (2.3,1.5) {\textcolor{blue}{$Z^{\prime} (\gamma, Z)$}};
+		\end{tikzpicture}
+}
+\end{document}
