@@ -1,0 +1,47 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,decorations,calc,shadows.blur,decorations.pathreplacing,decorations.pathmorphing,decorations.markings,shapes, arrows, positioning,bending,chains,matrix, patterns}
+\definecolor{cobalt}{rgb}{0.0, 0.28, 0.67}
+\usepackage{xfrac}
+\newcommand{\zp}{\mathrm{Z}^{\prime}}
+\newcommand{\za}{\mathrm{Z}_{A}} %vector-axial SPIN 1
+\newcommand{\mza}{\mathrm{m}_{\mathrm{Z}_{A}}}
+\newcommand{\zv}{\mathrm{Z}_{V}} %vector SPIN 1
+\newcommand{\bp}{\mathrm{Z}_{p}} %vector-axial SPIN 0 or 
+\newcommand{\ga}{\bf \gamma}
+\newcommand{\x}{\bf \chi}
+\newcommand{\gq}{\mathrm{g}^{q}}
+\newcommand{\gx}{\mathrm{g}^{\chi}}
+\newcommand{\mx}{\mathrm{m}_{\chi}}
+\newcommand{\mxx}{\mathrm{m}_{\chi \chi}}
+%-----------------------------------------------------------
+%-----------------------------------------------------------
+%-----------------------------------------------------------
+\begin{document}
+\tikzset{
+	>=triangle 45,
+	pos=.8,
+    boson/.style={decorate, thick,draw=cobalt,decoration={snake,segment length=5,post length=1mm,pre length = 1mm}},
+    fermion/.style={draw=black, postaction={decorate}, decoration={markings,mark=at position .5 with {\arrow[draw=black,scale=1.5,>=stealth]{>}}}},
+    antifermion/.style={draw=black, postaction={decorate},decoration={markings,mark=at position .5 with {\arrow[draw=black,scale=1.5,>=stealth]{<}}}},
+    gluon/.style={decorate, draw=black,decoration={coil,amplitude=4pt, segment length=5pt}}
+      }
+\resizebox{30cm}{!}{
+ \begin{tikzpicture}[scale=1]
+    \node at (-0.3,3.1) {\small p};
+    \node at (-0.3,0.08) {\small p};
+    \node at (4.6,3.1) {$\x$};
+    \node at (4.6,0.08) {$\x$};
+    \draw[fermion] (0,2.8) to (1,1.5);
+    \draw[antifermion] (0,0.2) to (1,1.5);
+    \draw[boson] (1,1.5) to (3,1.5);
+    \node at (2.0,1.0)   {\color{cobalt} \small $\za$};%,\,\zv$};
+    \draw[fermion] (3,1.5) to (4,2.9);
+    \draw[antifermion] (3,1.5) to (4,0.1);
+    \draw[gluon] (1.7,2.9) to  (0.64,2.0);
+    \node at (2.2,3.0) {\small g};
+    \node at (3.8,1.5)   {\small $\gx = 1$};
+    \node at (0.2,1.5)   {\small $\gq = \sfrac{1}{4}$};
+  \end{tikzpicture}
+}
+\end{document}
