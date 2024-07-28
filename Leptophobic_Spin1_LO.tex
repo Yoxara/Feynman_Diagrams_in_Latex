@@ -1,4 +1,6 @@
-\documentclass{standalone}
+\documentclass[convert={convertexe={convert},density=300,outext=.png}]{standalone}
+
+% convert -density 300 name_file.pdf -quality 90 name_file.png 
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,decorations,calc,shadows.blur,decorations.pathreplacing,decorations.pathmorphing,decorations.markings,shapes, arrows, positioning,bending,chains,matrix, patterns}
 \definecolor{cobalt}{rgb}{0.0, 0.28, 0.67}
