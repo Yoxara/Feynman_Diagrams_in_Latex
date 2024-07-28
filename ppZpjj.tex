@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{calc, decorations.pathmorphing, decorations.markings, positioning, shapes, snakes, arrows, patterns, hobby, arrows.meta}
+\usepackage{amsmath}
+\newcommand{\zp}{\text{Z}^{\prime}}
+\newcommand{\zpm}{\text{Z}^{\prime \mu}}
+
+%-----------------------------------------------------------
+%-----------------------------------------------------------
+%-----------------------------------------------------------
+\begin{document}
+\tikzset{
+>=triangle 45,
+pos=.8,
+scalar/.style={decorate, dashed, draw=blue},
+photon/.style={decorate, thick,decoration={snake,segment length=5,post length=1mm,pre length = 1.5mm}},
+boson/.style={decorate, thick,draw=blue,decoration={snake,segment length=5,post length=1mm,pre length = 1mm}},
+particle/.style={draw=black, postaction={decorate}},
+fermion/.style={draw=black, postaction={decorate}, decoration={markings,mark=at position .5 with {\arrow[draw=black,scale=1.5,>=stealth]{>}}}},
+antifermion/.style={draw=black, postaction={decorate},decoration={markings,mark=at position .5 with {\arrow[draw=black,scale=1.5,>=stealth]{<}}}},
+gluon/.style={decorate, draw=black,decoration={coil,amplitude=4pt, segment length=5pt}},
+}
+
+\begin{tikzpicture}
+        \node at (-0.1,2.9) {$\overline{q}$};
+        \node at (-0.1,0.1) {$q$};
+        \node at (4.2,2.9) {$j$};
+        \node at (4.2,0.1) {$j$};
+        \draw[antifermion] (0,2.8) to (1,1.5);
+        \draw[fermion] (0,0.2) to (1,1.5);
+        \draw[blue, photon] (1,1.5) to (3,1.5);
+        \draw[fermion] (3,1.5) to (4,2.9);
+        \draw[antifermion] (3,1.5) to (4,0.1);
+        \node at (2,1.2) {\textcolor{blue}{$\zp$}};
+        \node at (4.4,1.5)   {\scriptsize $ \propto i  \gamma^\mu\left(g_V^q-\gamma_5 g_A^q\right) $};
+        \node at (-0.3,1.5)   {\scriptsize $  i  \gamma^\mu\left(g_V^q-\gamma_5 g_A^q\right) \propto $};
+        % \node at (-1,-0.5) {\bf (a)};
+  \end{tikzpicture}
+
+  \end{document}
